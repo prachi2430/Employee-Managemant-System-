@@ -1,6 +1,7 @@
 const employees = [
   {
     "id": 1,
+    "name": "Employee One",
     "class": "employee",
     "email": "employee1@example.com",
     "password": "pass1234",
@@ -39,6 +40,7 @@ const employees = [
   },
   {
     "id": 2,
+    "name": "Employee Two",
      "class": "employee",
     "email": "employee2@example.com",
     "password": "secure5678",
@@ -77,6 +79,7 @@ const employees = [
   },
   {
     "id": 3,
+    "name": "Employee Three",
      "class": "employee",
     "email": "employee3@example.com",
     "password": "mypassword90",
@@ -114,6 +117,7 @@ const employees = [
     ]
   },
   {
+    "name": "Employee Four",
     "id": 4,
      "class": "employee",
     "email": "employee4@example.com",
@@ -152,6 +156,7 @@ const employees = [
     ]
   },
   {
+    "name": "Employee Five",
     "id": 5,
      "class": "employee",
     "email": "employee5@example.com",
@@ -193,6 +198,7 @@ const employees = [
 
 const admin = [
   {
+    "name": "Admin User",
     "id": 101,
     "email": "admin@example.com",
     "password": "adminSecure123"
