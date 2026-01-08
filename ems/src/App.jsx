@@ -9,9 +9,9 @@ import { AuthContext } from './context/AuthProvider.jsx'
 const App = () => {
 
   const [user , setUser] = useState(null);
-  // const [loggedInUserData , setLoggedInUserData] = useState(null);
+  const [loggedInUserData , setLoggedInUserData] = useState(null);
   const data = useContext(AuthContext);
-  
+ 
 
   // useEffect(() => {
   //   if(data){
@@ -27,11 +27,12 @@ const App = () => {
       setUser('admin');
       localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin'}));
     }else if(data){
-      const employee = data.employee.find(e=> e.class === "employee" );
+      const employee = data.employees.find((e)=>{ return e.class === "employee"} );
+      console.log('Searching for employee with email:', employee);
       
       if(employee){
         setUser('employee');
-        console.log('employee login as' + employee);
+        setLoggedInUserData(employee);
         localStorage.setItem('loggedInUser', JSON.stringify({ role: 'employee'}));
       }
     }else{
@@ -44,9 +45,13 @@ const App = () => {
 
   return (
     <div>
-     {!user ? <Login handleLogin={handleLogin} /> : ""}
-     {user === 'admin' && <AdminDashboard />}
-     {user === 'employee' && <EmployeeDashboard />}
+    {!user? <Login handleLogin={handleLogin} />
+    : user === 'admin'? <AdminDashboard /> 
+      : user === 'employee'? <EmployeeDashboard loggedInUserData={loggedInUserData} />
+        : null
+}
+
+     
 
     </div>
     
